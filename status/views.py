@@ -9,6 +9,17 @@ from .utils       import notify_clients
 from django.views.decorators.csrf import csrf_exempt
 from django.http  import JsonResponse, HttpResponseNotAllowed
 import json
+# status/views.py
+from django.http import JsonResponse
+import os
+
+def test_env(request):
+    value = os.environ.get("FIREBASE_CREDENTIAL_BASE64", "Not Set")
+    return JsonResponse({"FIREBASE_CREDENTIAL_BASE64": value})
+
+
+
+
 
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset               = Service.objects.all()  
