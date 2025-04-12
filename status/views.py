@@ -86,8 +86,8 @@ class MaintenanceViewSet(viewsets.ModelViewSet):
             "data": MaintenanceSerializer(m).data
         })
 
-# catch‑all notifier
-notify_clients({"message": "Service status updated!"})
+# # catch‑all notifier
+# notify_clients({"message": "Service status updated!"})
 
 @csrf_exempt
 def test_notify(request):
