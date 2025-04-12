@@ -100,13 +100,13 @@ class MaintenanceViewSet(viewsets.ModelViewSet):
 # # catch‑all notifier
 # notify_clients({"message": "Service status updated!"})
 
-@csrf_exempt
-def test_notify(request):
-    if request.method != "POST":
-        return HttpResponseNotAllowed(["POST"])
-    try:
-        payload = json.loads(request.body)
-    except json.JSONDecodeError:
-        return JsonResponse({"error": "Invalid JSON"}, status=400)
-    notify_clients(payload)
-    return JsonResponse({"status": "ok", "sent": payload})
+# @csrf_exempt
+# def test_notify(request):
+#     if request.method != "POST":
+#         return HttpResponseNotAllowed(["POST"])
+#     try:
+#         payload = json.loads(request.body)
+#     except json.JSONDecodeError:
+#         return JsonResponse({"error": "Invalid JSON"}, status=400)
+#     notify_clients(payload)
+#     return JsonResponse({"status": "ok", "sent": payload})
