@@ -10,7 +10,6 @@ router.register(r'maintenances', MaintenanceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('', include(router.urls)),
-     path("test-notify/", test_notify, name="test_notify")
+    path('api/', include(router.urls)),  # ✅ everything under /api/
+    path('test-notify/', test_notify, name="test_notify"),
 ]
