@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-1r)r69)zf32hrvo7c!p5pbbbd&649#&^kaex%hq9hl*-e@a*ll
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -40,6 +40,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware', 
@@ -48,13 +49,7 @@ MIDDLEWARE = [
 ]
 
 
-MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    *MIDDLEWARE,
-]
 
-# During dev, allow all origins (lock down later)
-CORS_ALLOW_ALL_ORIGINS = True  # or use CORS_ALLOWED_ORIGINS list :contentReference[oaicite:2]{index=2}
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -102,14 +97,19 @@ DATABASES = {
     }
 }
 
+CORS_ALLOW_ALL_ORIGINS = False  # (default is False)
+
 # Allow your frontend during development:
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-
 # Or if using sockets and want credentials:
 CORS_ALLOW_CREDENTIALS = True
 
+
+# Optional: Allow all headers & methods for development
+CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOW_METHODS = ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
