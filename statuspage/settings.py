@@ -102,6 +102,7 @@ CORS_ALLOW_ALL_ORIGINS = False  # (default is False)
 # Allow your frontend during development:
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://plivofront.vercel.app/"
 ]
 # Or if using sockets and want credentials:
 CORS_ALLOW_CREDENTIALS = True
