@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
+ALLOWED_HOSTS = ["*"]
 
 
 REST_FRAMEWORK = {
